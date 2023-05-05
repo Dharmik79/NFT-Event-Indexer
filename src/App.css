@@ -22,3 +22,15 @@
     margin-top: 1dvh;
     background-color: red;
 }
+
+.graph
+{
+    width:50%;
+    height: 50dvh;
+    border: 2px solid gray;
+    box-sizing: border-box;
+    margin-right: 5px;
+    margin-bottom: 1dvh;
+    margin-top: 1dvh;
+    background-color: green;
+}
