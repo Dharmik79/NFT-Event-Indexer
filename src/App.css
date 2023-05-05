@@ -1,0 +1,24 @@
+.boxContainer{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.row1{
+    display: flex;
+    flex-direction: row;
+    height: 90dvh;
+    margin-left: 5px;
+}
+
+.profile{
+    width: 50%;
+    height: 50dvh;
+    border: 2px solid gray;
+    box-sizing: border-box;
+    margin-right: 5px;
+    margin-bottom: 1dvh;
+    margin-top: 1dvh;
+    background-color: red;
+}

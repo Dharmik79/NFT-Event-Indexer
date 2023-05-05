@@ -1,9 +1,13 @@
-
-
+import Profile from "./components/profile";
+import "./App.css"
 function App() {
   return (
-    <div className="App">
-      Welcome to the NFTR builder app
+    <div className="boxContainer">
+      <div className="row1">
+        <div className="profile">
+          <Profile />
+        </div>
+      </div>
     </div>
   );
 }
