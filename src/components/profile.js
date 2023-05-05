@@ -4,8 +4,10 @@ function Profile() {
   return (
     <div className="container">
       <div className="imageContainer">
-        <div>Image</div>
-        <div>Name and Id</div>
+        <img src="https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?cs=srgb&dl=pexels-pixabay-268533.jpg&fm=jpg" />
+        <div>Name</div>
+        <div>Description</div>
+        <div>Traits</div>
       </div>
       <div className="contact">Contact</div>
     </div>
