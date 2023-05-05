@@ -1,6 +1,7 @@
 import Profile from "./components/profile";
-import "./App.css"
+import "./App.css";
 import Graph from "./components/Graph";
+import Transactions from "./components/Transactions";
 function App() {
   return (
     <div className="boxContainer">
@@ -9,7 +10,12 @@ function App() {
           <Profile />
         </div>
         <div className="graph">
-        <Graph/>
+          <Graph />
+        </div>
+      </div>
+      <div className="row2">
+      <div className="transactions">
+        <Transactions />
         </div>
       </div>
     </div>
