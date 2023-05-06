@@ -1,6 +1,6 @@
 import React from "react";
 import "./profile.css";
-function Profile({ imageURL, name, tokenId, tType, desc, traits }) {
+function Profile({ imageURL, name, tokenId, tType, desc, traits,owner }) {
   
   return (
     <div className="container">
@@ -9,6 +9,7 @@ function Profile({ imageURL, name, tokenId, tType, desc, traits }) {
         <div>Name : {name}</div>
         <div>Token Type : {tType}</div>
         <div>Token Id : {tokenId}</div>
+        <div>Owner : {owner}</div>
       </div>
       <div className="contact">
         <div>Description :{desc}</div>
@@ -20,7 +21,7 @@ function Profile({ imageURL, name, tokenId, tType, desc, traits }) {
               return (
                 <div key={index}>
                   <div>
-                    Type : {trait.trait_type} value : {trait.value}
+                   {trait.trait_type}  : {trait.value}
                   </div>
                 </div>
               );

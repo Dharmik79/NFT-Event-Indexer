@@ -12,12 +12,12 @@ function MainPage() {
   const [tType,setTType]= useState(state?.result?.tokenType || "")
   const [tokenId,setTokenId]= useState(state?.result?.tokenId || "")
 const [traits,setTraits]=useState(state?.result?.rawMetadata?.attributes||[])
-  
+  const [owner,setOwner]=useState(state?.ownerData||"")
   return (
     <div className="boxContainer">
     <div className="row1">
       <div className="profile">
-        <Profile imageURL={imageURL} name={name} tType={tType} tokenId={tokenId} traits={traits}/>
+        <Profile owner={owner}imageURL={imageURL} name={name} tType={tType} tokenId={tokenId} traits={traits}/>
       </div>
       <div className="graph">
         <Graph />

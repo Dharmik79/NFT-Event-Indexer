@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import "./LandingPage.css";
 import { useNavigate } from "react-router";
-import { getNftMetadata } from "../api/functions";
+import { getNftMetadata,getNftOwner } from "../api/functions";
 function LandingPage() {
   const navigate = useNavigate();
   const [contractAddress, setContractAddress] = useState("");
   const [tokenId, setTokenId] = useState("");
   const handleSubmit = async (e) => {
     let result = await getNftMetadata(contractAddress, tokenId);
+    let ownerData = await getNftOwner(contractAddress, tokenId);
+
     if (result) {
-      navigate("/nft", { state: { result } });
+      navigate("/nft", { state: { result,ownerData } });
     }
   };
 
