@@ -1,0 +1,52 @@
+::-webkit-scrollbar{
+    display: none;
+}
+.boxContainer{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.row1{
+    display: flex;
+    flex-direction: row;
+    height: 50%;
+    margin-left: 5px;
+}
+
+.profile{
+    width: 50%;
+    border: 2px solid gray;
+    box-sizing: border-box;
+    margin-right: 5px;
+    margin-bottom: 1dvh;
+    margin-top: 1dvh;
+    background-color: red;
+}
+
+.graph
+{
+    width:50%;
+    border: 2px solid gray;
+    box-sizing: border-box;
+    margin-right: 5px;
+    margin-bottom: 1dvh;
+    margin-top: 1dvh;
+    background-color: green;
+}
+
+.row2{
+    width:100%;
+    height: 50%;
+    
+}
+
+.transactions
+{
+    height:97%;
+    border: 2px solid gray;
+    box-sizing: border-box;
+    margin: 5px;
+    background-color: blue;
+}
