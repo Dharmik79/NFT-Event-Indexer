@@ -13,6 +13,7 @@ function MainPage() {
   const [tokenId,setTokenId]= useState(state?.result?.tokenId || "")
 const [traits,setTraits]=useState(state?.result?.rawMetadata?.attributes||[])
   const [owner,setOwner]=useState(state?.ownerData||"")
+  const [graphData,setData]=useState(state?.data||[])
   return (
     <div className="boxContainer">
     <div className="row1">
@@ -20,7 +21,7 @@ const [traits,setTraits]=useState(state?.result?.rawMetadata?.attributes||[])
         <Profile owner={owner}imageURL={imageURL} name={name} tType={tType} tokenId={tokenId} traits={traits}/>
       </div>
       <div className="graph">
-        <Graph />
+        <Graph graphData={graphData}/>
       </div>
     </div>
     <div className="row2">

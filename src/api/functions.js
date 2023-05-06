@@ -56,9 +56,23 @@ export const getNftSales = async (contractAddress, tokenId) => {
     }
   );
 
-  const data = await resp.json();
-  console.log(data);
-  return data;
+  const data1 = await resp.json();
+  let data=data1.nftTransfers
+
+let nftData=[]
+  for(let i=0;i<data.length;i++)
+  {
+    let obj={
+      time:data[i].blockchainEvent.blockTimestamp,
+      price:data[i].senderReceived.totalNative
+    }
+    if(obj.price)
+    {
+      nftData.push(obj)
+    }
+ 
+  }
+  return nftData;
 };
 
 // getNftSales("0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D", "1191");

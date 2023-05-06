@@ -1,7 +1,6 @@
 import React from 'react'
 
 
-
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -12,8 +11,8 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-import { Line } from 'react-chartjs-2';
 
+import { Line } from 'react-chartjs-2';
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -23,36 +22,32 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-
-export const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: 'top',
-    },
-    title: {
-      display: true,
-      text: 'Time Chart',
-    },
-  },
-};
-
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-
-export const data = {
-  labels,
+const data = {
+  labels: [],
   datasets: [
     {
-      label: 'Type',
-      data: labels.map(() =>[10,63,74,85,16,76,10]),
-      borderColor: 'rgb(255, 99, 132)',
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
-    }
+      label: 'Price',
+      data: [],
+      fill: false,
+      borderColor: 'rgb(75, 192, 192)',
+      tension: 0.1,
+    },
   ],
 };
+const options = {
 
+   
+  
+}
 
-function Graph() {
+function Graph({graphData}) {
+console.log("graphData",graphData)
+
+graphData.forEach((item) => {
+  data.labels.push(item.time);
+  data.datasets[0].data.push(item.price);
+});
+
   return (
     <Line options={options} data={data} />
   )

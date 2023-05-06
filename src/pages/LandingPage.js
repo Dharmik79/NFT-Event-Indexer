@@ -10,11 +10,10 @@ function LandingPage() {
   const handleSubmit = async (e) => {
     let result = await getNftMetadata(contractAddress, tokenId);
     let ownerData = await getNftOwner(contractAddress, tokenId);
-    let nftSalesData = await getNftSales(contractAddress, tokenId);
-    console.log(nftSalesData);
+    let data = await getNftSales(contractAddress, tokenId);
 
     if (result) {
-      navigate("/nft", { state: { result, ownerData } });
+      navigate("/nft", { state: { result, ownerData,data } });
     }
   };
 
