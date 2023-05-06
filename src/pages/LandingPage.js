@@ -1,26 +1,51 @@
-import React from 'react'
-import "./LandingPage.css"
+import React, { useState } from "react";
+import "./LandingPage.css";
+import { useNavigate } from "react-router";
+import { getNftMetadata } from "../api/functions";
 function LandingPage() {
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        
-      };
-    
-      return (
-        <div className='container1'>
-        <form className="form" onSubmit={handleSubmit}>
-          <div className="input-group">
-            <label htmlFor="field1">Contract Address</label>
-            <input type="text" id="field1" className="input-field" />
-          </div>
-          <div className="input-group">
-            <label htmlFor="field2">Token Id</label>
-            <input type="text" id="field2" className="input-field" />
-          </div>
-          <button type="submit" className="submit-btn">Submit</button>
-        </form>
+  const navigate = useNavigate();
+  const [contractAddress, setContractAddress] = useState("");
+  const [tokenId, setTokenId] = useState("");
+  const handleSubmit = async (e) => {
+    let result = await getNftMetadata(contractAddress, tokenId);
+    if (result) {
+      navigate("/nft", { state: { result } });
+    }
+  };
+
+  return (
+    <div className="container1">
+      <div className="form">
+        <div className="input-group">
+          <label htmlFor="field1">Contract Address</label>
+          <input
+            type="text"
+            id="field1"
+            className="input-field"
+            value={contractAddress}
+            onChange={(e) => {
+              setContractAddress(e.target.value);
+            }}
+          />
         </div>
-      );
+        <div className="input-group">
+          <label htmlFor="field2">Token Id</label>
+          <input
+            type="text"
+            id="field2"
+            className="input-field"
+            value={tokenId}
+            onChange={(e) => {
+              setTokenId(e.target.value);
+            }}
+          />
+        </div>
+        <button type="submit" className="submit-btn" onClick={handleSubmit}>
+          Submit
+        </button>
+      </div>
+    </div>
+  );
 }
 
-export default LandingPage
+export default LandingPage;
