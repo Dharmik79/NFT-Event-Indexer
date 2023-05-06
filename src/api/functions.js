@@ -1,5 +1,7 @@
 // This script demonstrates access to the NFT API via the Alchemy SDK.
 import { Network, Alchemy } from "alchemy-sdk";
+
+// import fetch from "node-fetch";
 // import dotenv
 // import dotenv from "dotenv";
 // dotenv.config();
@@ -27,16 +29,36 @@ export const getNftOwner = async (contractAddress, tokenId) => {
   const nfts = await alchemy.nft.getNftsForOwner(walletAddress.owners[0], {
     contractAddresses: [ensContractAddress],
   });
-  let result=walletAddress.owners[0]
-  for(let i=0;i<nfts.ownedNfts.length;i++)
-  {
-    if(nfts.ownedNfts[i])
-    {
-      result=nfts.ownedNfts[i].title;
-      break
+  let result = walletAddress.owners[0];
+  for (let i = 0; i < nfts.ownedNfts.length; i++) {
+    if (nfts.ownedNfts[i]) {
+      result = nfts.ownedNfts[i].title;
+      break;
     }
   }
-  return result
+  return result;
 };
 
-getNftOwner("0x102fc17bcB529c90b99039d6eD4CD12BD33f90Ed", "3902");
+export const getNftSales = async (contractAddress, tokenId) => {
+  const query = new URLSearchParams({
+    contractAddress: contractAddress,
+    tokenId: tokenId,
+    labelsAny: "LABEL_SALE",
+  }).toString();
+
+  const resp = await fetch(
+    `https://ethereum-rest.api.mnemonichq.com/foundational/v1beta2/transfers/nft?${query}`,
+    {
+      method: "GET",
+      headers: {
+        "X-API-Key": "yoyzAnBS6Dk7Zz2M86dEguOEQBDLWE77vrFiCpkPLtH10vqc",
+      },
+    }
+  );
+
+  const data = await resp.json();
+  console.log(data);
+  return data;
+};
+
+// getNftSales("0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D", "1191");

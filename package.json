@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "alchemy-sdk": "^2.8.2",
     "axios": "^1.4.0",
+    "buffer": "^6.0.3",
     "chart.js": "^4.3.0",
     "fs": "^0.0.1-security",
     "react": "^18.2.0",
