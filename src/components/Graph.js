@@ -1,4 +1,4 @@
-import React from 'react'
+import React ,{useEffect}from 'react'
 
 
 import {
@@ -41,12 +41,15 @@ const options = {
 }
 
 function Graph({graphData}) {
-console.log("graphData",graphData)
 
-graphData.forEach((item) => {
-  data.labels.push(item.time);
-  data.datasets[0].data.push(item.price);
-});
+useEffect(() => {
+  data.labels=[]
+  data.datasets[0].data=[]
+  graphData.forEach((item) => {
+    data.labels.push(item.time);
+    data.datasets[0].data.push(item.price);
+  });
+}, [graphData])
 
   return (
     <Line options={options} data={data} />
