@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import "./LandingPage.css";
 import { useNavigate } from "react-router";
-import { getNftMetadata, getNftOwner, getNftDetails } from "../api/functions";
+import {
+  getNftMetadata,
+  getNftOwner,
+  getNftDetails,
+  getNftTransfers,
+} from "../api/functions";
 import { getNftSales } from "../api/functions";
 import moment from "moment";
 
@@ -17,7 +22,11 @@ function LandingPage() {
     const diffDuration = moment.duration(
       moment().diff(nftDetails.nft.mintEvent.blockTimestamp)
     );
-  
+
+    // Use this to create NFT timeline @dd07
+    let nftTransfers = getNftTransfers(contractAddress, tokenId);
+
+    console.log(nftTransfers);
     const months = diffDuration?.months();
     const years = diffDuration?.years();
     const days = diffDuration?.days();
