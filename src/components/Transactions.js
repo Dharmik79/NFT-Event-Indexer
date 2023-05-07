@@ -41,7 +41,7 @@ function Transactions({ transfers }){
                   {transfer.blockchainEvent.txHash}
                 </a>
               </td>
-              <td style={{ padding: "10px", backgroundColor: "white" }}>{transfer.labels.join(", ")}</td>
+              <td style={{ padding: "10px", backgroundColor: "white" }}>{transfer.labels.map(label => label.replace('LABEL_', '')).join(', ')}</td>
             </tr>
           ))}
         </tbody>
