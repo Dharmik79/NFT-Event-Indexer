@@ -22,7 +22,10 @@ ChartJS.register(
   Tooltip,
   Legend
 );
+const options = {
+  responsive: true,
 
+};
 
 function Graph({ graphData }) {
   console.log("graph", graphData);
@@ -97,10 +100,6 @@ function Graph({ graphData }) {
     setChartData({ eth: ethData, usd: usdData });
   }, [graphData]);
 
-  const options = {
-    
-  };
-
   const handleToggleChange = () => {
     setShowEthGraph(!showEthGraph);
   };
@@ -116,9 +115,9 @@ function Graph({ graphData }) {
         Show in USD
       </label>
       {showEthGraph ? (
-        <Line options={options} data={chartData.eth} />
+        <Line options={options} data={chartData.eth}  height={"100%"} />
       ) : (
-        <Line options={options} data={chartData.usd} />
+        <Line options={options} data={chartData.usd}  height={"100%"} />
       )}
     </div>
   );
