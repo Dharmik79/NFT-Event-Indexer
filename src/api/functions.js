@@ -1,15 +1,12 @@
 // This script demonstrates access to the NFT API via the Alchemy SDK.
 import { Network, Alchemy } from "alchemy-sdk";
 import moment from "moment";
-// import fetch from "node-fetch";
-// import dotenv
-// import dotenv from "dotenv";
-// dotenv.config();
-const pnemonic_API_KEY = "yoyzAnBS6Dk7Zz2M86dEguOEQBDLWE77vrFiCpkPLtH10vqc";
+
+const pnemonic_API_KEY =process.env.REACT_APP_PNEMONIC_API_KEY;
 
 // Optional Config object, but defaults to demo api-key and eth-mainnet.
 const settings = {
-  apiKey: "gmiTb0oSLYS8-yekNSzmm0iRBQLX_fUN",
+  apiKey: process.env.REACT_APP_ALCHEMY_API_KEY,
   network: Network.ETH_MAINNET, // Replace with your network.
 };
 
@@ -26,7 +23,7 @@ export const getNftOwner = async (contractAddress, tokenId) => {
     contractAddress,
     tokenId
   );
-  const ensContractAddress = "0x57f1887a8BF19b14fC0dF6Fd9B2acc9Af147eA85";
+  const ensContractAddress = process.env.REACT_APP_CONTRACT_ADDRESS;
   const nfts = await alchemy.nft.getNftsForOwner(walletAddress.owners[0], {
     contractAddresses: [ensContractAddress],
   });
@@ -78,7 +75,6 @@ export const getNftSales = async (contractAddress, tokenId) => {
 
   nftDataEth.sort((a, b) => moment(a.time) - moment(b.time));
   nftDataUSD.sort((a, b) => moment(a.time) - moment(b.time));
-  console.log("nnff", nftDataEth);
   return { nftDataEth: nftDataEth, nftDataUSD: nftDataUSD };
 };
 
