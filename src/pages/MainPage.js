@@ -14,11 +14,12 @@ function MainPage() {
 const [traits,setTraits]=useState(state?.result?.rawMetadata?.attributes||[])
   const [owner,setOwner]=useState(state?.ownerData||"")
   const [graphData,setData]=useState(state?.data||[])
+
   return (
     <div className="boxContainer">
     <div className="row1">
       <div className="profile">
-        <Profile owner={owner}imageURL={imageURL} name={name} tType={tType} tokenId={tokenId} traits={traits}/>
+        <Profile years={state?.years} months={state?.months} days={state?.days} owner={owner}imageURL={imageURL} name={name} tType={tType} tokenId={tokenId} traits={traits}/>
       </div>
       <div className="graph">
         <Graph graphData={graphData}/>

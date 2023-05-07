@@ -3,6 +3,8 @@ import "./LandingPage.css";
 import { useNavigate } from "react-router";
 import { getNftMetadata, getNftOwner, getNftDetails } from "../api/functions";
 import { getNftSales } from "../api/functions";
+import moment from "moment";
+
 function LandingPage() {
   const navigate = useNavigate();
   const [contractAddress, setContractAddress] = useState("");
@@ -12,9 +14,17 @@ function LandingPage() {
     let ownerData = await getNftOwner(contractAddress, tokenId);
     let data = await getNftSales(contractAddress, tokenId);
     let nftDetails = await getNftDetails(contractAddress, tokenId);
-    console.log(nftDetails.nft.mintevent.blockTimestamp);
+    const diffDuration = moment.duration(
+      moment().diff(nftDetails.nft.mintEvent.blockTimestamp)
+    );
+    console.log("nftDetails.nft.mintEvent.blockTimestamp",nftDetails.nft.mintEvent.blockTimestamp)
+    const months = diffDuration?.months();
+    const years = diffDuration?.years();
+    const days = diffDuration?.days();
     if (result) {
-      navigate("/nft", { state: { result, ownerData, data, nftDetails } });
+      navigate("/nft", {
+        state: { result, ownerData, data, nftDetails, days, months, years },
+      });
     }
   };
 

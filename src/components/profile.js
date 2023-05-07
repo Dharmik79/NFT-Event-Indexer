@@ -1,7 +1,7 @@
 import React from "react";
 import "./profile.css";
-function Profile({ imageURL, name, tokenId, tType, desc, traits,owner }) {
-  
+function Profile({ imageURL, name, tokenId, tType, desc, traits,owner,days,months,years }) {
+
   return (
     <div className="container">
       <div className="imageContainer">
@@ -10,6 +10,7 @@ function Profile({ imageURL, name, tokenId, tType, desc, traits,owner }) {
         <div>Token Type : {tType}</div>
         <div>Token Id : {tokenId}</div>
         <div>Owner : {owner}</div>
+        <div> {years} years {months} months {days} days </div>
       </div>
       <div className="contact">
         <div>Description :{desc}</div>
