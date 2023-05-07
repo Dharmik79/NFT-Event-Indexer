@@ -1,5 +1,5 @@
 import React ,{useEffect}from 'react'
-
+import moment from "moment"
 
 import {
   Chart as ChartJS,
@@ -46,7 +46,7 @@ useEffect(() => {
   data.labels=[]
   data.datasets[0].data=[]
   graphData.forEach((item) => {
-    data.labels.push(item.time);
+    data.labels.push(moment(item.time).format("YYYY-MM-DD"));
     data.datasets[0].data.push(item.price);
   });
 }, [graphData])
