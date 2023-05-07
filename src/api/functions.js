@@ -1,6 +1,6 @@
 // This script demonstrates access to the NFT API via the Alchemy SDK.
 import { Network, Alchemy } from "alchemy-sdk";
-
+import moment from "moment"
 // import fetch from "node-fetch";
 // import dotenv
 // import dotenv from "dotenv";
@@ -74,6 +74,10 @@ export const getNftSales = async (contractAddress, tokenId) => {
 
     }
   }
+
+  nftDataEth.sort((a,b)=>moment(a.time)-moment(b.time))
+  nftDataUSD.sort((a,b)=>moment(a.time)-moment(b.time))
+console.log("nnff",nftDataEth)
   return {nftDataEth:nftDataEth,nftDataUSD:nftDataUSD};
 };
 
