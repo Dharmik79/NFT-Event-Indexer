@@ -1,5 +1,5 @@
-import React ,{useEffect}from 'react'
-import moment from "moment"
+import React, { useState, useEffect } from "react";
+import moment from "moment";
 
 import {
   Chart as ChartJS,
@@ -10,9 +10,9 @@ import {
   Title,
   Tooltip,
   Legend,
-} from 'chart.js';
+} from "chart.js";
 
-import { Line } from 'react-chartjs-2';
+import { Line } from "react-chartjs-2";
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -22,37 +22,105 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-const data = {
-  labels: [],
-  datasets: [
-    {
-      label: 'Price( Eth)',
-      data: [],
-      fill: false,
-      borderColor: 'rgb(75, 192, 192)',
-      tension: 0.1,
+
+
+function Graph({ graphData }) {
+  console.log("graph", graphData);
+  const [showEthGraph, setShowEthGraph] = useState(true);
+  const [chartData, setChartData] = useState({
+    eth: {
+      labels: [],
+      datasets: [
+        {
+          label: "Price(Eth)",
+          data: [],
+          fill: false,
+          borderColor: "rgb(75, 192, 192)",
+          tension: 0.1,
+        },
+      ],
     },
-  ],
-};
-const options = {
-
-   
-  
-}
-
-function Graph({graphData}) {
-
-useEffect(() => {
-  data.labels=[]
-  data.datasets[0].data=[]
-  graphData.forEach((item) => {
-    data.labels.push(moment(item.time).format("YYYY-MM-DD"));
-    data.datasets[0].data.push(item.price);
+    usd: {
+      labels: [],
+      datasets: [
+        {
+          label: "Price($USD)",
+          data: [],
+          fill: false,
+          borderColor: "rgb(75, 192, 192)",
+          tension: 0.1,
+        },
+      ],
+    },
   });
-}, [graphData])
+
+  useEffect(() => {
+    let nftDataEth = graphData.nftDataEth;
+    let nftDataUSD = graphData.nftDataUSD;
+
+    const ethData = {
+      labels: [],
+      datasets: [
+        {
+          label: "Price(Eth)",
+          data: [],
+          fill: false,
+          borderColor: "rgb(75, 192, 192)",
+          tension: 0.1,
+        },
+      ],
+    };
+
+    const usdData = {
+      labels: [],
+      datasets: [
+        {
+          label: "Price($USD)",
+          data: [],
+          fill: false,
+          borderColor: "rgb(75, 192, 192)",
+          tension: 0.1,
+        },
+      ],
+    };
+
+    nftDataEth.forEach((item) => {
+      ethData.labels.push(moment(item.time).format("YYYY-MM-DD"));
+      ethData.datasets[0].data.push(item.price);
+    });
+
+    nftDataUSD.forEach((item) => {
+      usdData.labels.push(moment(item.time).format("YYYY-MM-DD"));
+      usdData.datasets[0].data.push(item.price);
+    });
+
+    setChartData({ eth: ethData, usd: usdData });
+  }, [graphData]);
+
+  const options = {
+    
+  };
+
+  const handleToggleChange = () => {
+    setShowEthGraph(!showEthGraph);
+  };
 
   return (
-    <Line options={options} data={data} />
-  )
+    <div>
+      <label>
+        <input
+          type="checkbox"
+          checked={!showEthGraph}
+          onChange={handleToggleChange}
+        />
+        Show in USD
+      </label>
+      {showEthGraph ? (
+        <Line options={options} data={chartData.eth} />
+      ) : (
+        <Line options={options} data={chartData.usd} />
+      )}
+    </div>
+  );
 }
-export default Graph
+export default Graph;
