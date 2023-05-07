@@ -1,10 +1,18 @@
 .custom-page {
-  margin: 0;
-  font-family: Arial, sans-serif;
   background: linear-gradient(135deg, #d7d8da, #cbd1d6);
-  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
 }
-
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #070707;
+  margin-top: 100px;
+  text-align: center;
+}
 
 .container1 {
   display: flex;

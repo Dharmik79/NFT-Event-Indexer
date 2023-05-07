@@ -38,6 +38,7 @@ function LandingPage() {
 
   return (
     <div className="custom-page">
+    <div className="title">NFT Event Indexer</div>
     <div className="container1">
       <div className="form">
         <div className="input-group">
