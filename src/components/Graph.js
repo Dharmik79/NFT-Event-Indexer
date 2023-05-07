@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
-
+import "./Graph.css"
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -28,7 +28,7 @@ const options = {
 };
 
 function Graph({ graphData }) {
-  console.log("graph", graphData);
+ 
   const [showEthGraph, setShowEthGraph] = useState(true);
   const [chartData, setChartData] = useState({
     eth: {
@@ -106,14 +106,20 @@ function Graph({ graphData }) {
 
   return (
     <div>
-      <label>
-        <input
-          type="checkbox"
-          checked={!showEthGraph}
-          onChange={handleToggleChange}
-        />
-        Show in USD
-      </label>
+    <div className="toggle-container">
+    <span className="toggle-label">ETH</span>
+    <label className="switch">
+      <input
+        type="checkbox"
+        checked={!showEthGraph}
+        onChange={handleToggleChange}
+      />
+      <span className="slider round" />
+
+    </label>
+    <span className="toggle-label">USD</span>
+
+  </div>
       {showEthGraph ? (
         <Line options={options} data={chartData.eth}  height={"100%"} />
       ) : (
