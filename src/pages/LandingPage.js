@@ -37,6 +37,7 @@ function LandingPage() {
   };
 
   return (
+    <div className="custom-page">
     <div className="container1">
       <div className="form">
         <div className="input-group">
@@ -67,6 +68,7 @@ function LandingPage() {
           Submit
         </button>
       </div>
+    </div>
     </div>
   );
 }
