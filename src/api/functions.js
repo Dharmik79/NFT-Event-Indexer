@@ -1,6 +1,6 @@
 // This script demonstrates access to the NFT API via the Alchemy SDK.
 import { Network, Alchemy } from "alchemy-sdk";
-import moment from "moment"
+import moment from "moment";
 // import fetch from "node-fetch";
 // import dotenv
 // import dotenv from "dotenv";
@@ -69,16 +69,17 @@ export const getNftSales = async (contractAddress, tokenId) => {
     };
     if (obj.price) {
       nftDataEth.push(obj);
-      nftDataUSD.push({time: data[i].blockchainEvent.blockTimestamp,
-        price: data[i].senderReceived.totalUsd});
-
+      nftDataUSD.push({
+        time: data[i].blockchainEvent.blockTimestamp,
+        price: data[i].senderReceived.totalUsd,
+      });
     }
   }
 
-  nftDataEth.sort((a,b)=>moment(a.time)-moment(b.time))
-  nftDataUSD.sort((a,b)=>moment(a.time)-moment(b.time))
-console.log("nnff",nftDataEth)
-  return {nftDataEth:nftDataEth,nftDataUSD:nftDataUSD};
+  nftDataEth.sort((a, b) => moment(a.time) - moment(b.time));
+  nftDataUSD.sort((a, b) => moment(a.time) - moment(b.time));
+  console.log("nnff", nftDataEth);
+  return { nftDataEth: nftDataEth, nftDataUSD: nftDataUSD };
 };
 
 // getNftSales("0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D", "1191");
@@ -115,6 +116,7 @@ export const getAllNftOwners = async (contractAddress, tokenId) => {
 
 export const getNftTransfers = async (contractAddress, tokenId) => {
   const query = new URLSearchParams({
+    limit: 500,
     contractAddress: contractAddress,
     tokenId: tokenId,
   }).toString();
