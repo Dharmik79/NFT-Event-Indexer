@@ -23,7 +23,7 @@ export const getNftOwner = async (contractAddress, tokenId) => {
     contractAddress,
     tokenId
   );
-  const ensContractAddress = process.env.REACT_APP_CONTRACT_ADDRESS;
+  const ensContractAddress = '0x57f1887a8BF19b14fC0dF6Fd9B2acc9Af147eA85';
   const nfts = await alchemy.nft.getNftsForOwner(walletAddress.owners[0], {
     contractAddresses: [ensContractAddress],
   });
