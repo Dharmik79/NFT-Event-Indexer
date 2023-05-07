@@ -1,25 +1,45 @@
-# The NFT event indexer
+# The NFT Event Indexer - Uncover the History of NFTs 🌐🚀
 
-The proposed project aims to develop an NFT Timeline feature for NFTR, which will serve as a social media platform for NFTs. This feature will enable users to track the complete history of an NFT on-chain through a timeline. To accomplish this, the project will involve indexing every on-chain event associated with an NFT. The events to be indexed will include generic events such as sales, transfers, mint, bundle, etc that are currently indexed by marketplace platforms like Opensea.
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Click%20Here-blue)](https://nft-event-indexer.onrender.com/)
 
-## How to run locally?
+The NFT Event Indexer project brings a powerful NFT Timeline feature to the NFTR social media platform. With a visually appealing and user-friendly interface, it allows users to dive deep into the complete history of an NFT on-chain through an interactive timeline.
+
+Unveil the story behind your favorite NFTs by tracking their on-chain events, including sales, transfers, minting, bundling, and more, as indexed by popular marketplace platforms like OpenSea.
+
+## Get Started: Running Locally 🖥️
+
+Follow these simple steps to run the NFT Event Indexer on your local machine:
 
 ```bash
-cd nftr_dao # working dir
+cd nftr_dao # working directory
 npm i # install all dependencies
 # update API key
-npm start # run app loaclly
-
+npm start # run app locally
 ```
-## What it does?
 
-The app opens up with the webpage letting users input contract address of any NFT Collection and its tokenID.
-After submitting, the application indexes the relevant data, it displays it to the user in an easy-to-understand timeline format. The timeline provides unparalleled transparency and insights into an NFT's history, enabling users to track every action the NFT has ever taken on-chain. The application provides an intuitive user interface that is easy to use and understand, making it accessible to both experienced and novice NFT collectors.
+## Features: Unravel the NFT Timeline 📅
 
-## How it's built?
+The app presents a sleek webpage where users can input the contract address of any NFT Collection and its tokenID. Upon submission, the application retrieves and indexes the relevant data, presenting it in an intuitive timeline format.
 
+The timeline offers unparalleled transparency and insights into an NFT's history, empowering users to track every on-chain action, and providing a comprehensive overview of an NFT's journey.
 
-## Whats next
+Designed with a focus on user experience, the application caters to both seasoned NFT collectors and newcomers alike.
 
-- Adding more features like filtering events by type/labels
-- Adding app specific events like bids and asks from major marketplaces
+## Technology Stack: Built to Perform ⚙️
+
+The NFT Event Indexer has been developed using cutting-edge technologies and frameworks to deliver a seamless user experience:
+
+- Frontend: React.js
+- APIs: MnemonicHQ, Alchemy SDK
+- Deployment: Render
+
+## Future Roadmap: Expanding Possibilities 🌟
+
+We're continuously working to improve the NFT Event Indexer and enhance its capabilities. Our future plans include:
+
+- Implementing advanced filtering options to sort events by type/labels
+- Incorporating app-specific events such as bids and asks from major marketplaces
+- Optimizing the user interface and performance for an even better user experience
+- Expanding support for additional NFT platforms and networks
+
+Stay tuned for the exciting updates coming to the NFT Event Indexer!
