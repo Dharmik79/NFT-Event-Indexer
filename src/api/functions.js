@@ -89,3 +89,38 @@ export const getNftDetails = async (contractAddress, tokenId) => {
   const result = await resp.json();
   return result;
 };
+
+export const getAllNftOwners = async (contractAddress, tokenId) => {
+  const resp = await fetch(
+    `https://ethereum-rest.api.mnemonichq.com/foundational/v1beta2/nfts/${contractAddress}/${tokenId}/owners`,
+    {
+      method: "GET",
+      headers: {
+        "X-API-Key": pnemonic_API_KEY,
+      },
+    }
+  );
+
+  const data = await resp.json();
+  return data;
+};
+
+export const getNftTransfers = async (contractAddress, tokenId) => {
+  const query = new URLSearchParams({
+    contractAddress: contractAddress,
+    tokenId: tokenId,
+  }).toString();
+
+  const resp = await fetch(
+    `https://ethereum-rest.api.mnemonichq.com/foundational/v1beta2/transfers/nft?${query}`,
+    {
+      method: "GET",
+      headers: {
+        "X-API-Key": pnemonic_API_KEY,
+      },
+    }
+  );
+
+  const data = await resp.json();
+  return data;
+};
