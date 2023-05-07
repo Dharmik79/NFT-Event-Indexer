@@ -17,7 +17,7 @@ function LandingPage() {
     const diffDuration = moment.duration(
       moment().diff(nftDetails.nft.mintEvent.blockTimestamp)
     );
-    console.log("nftDetails.nft.mintEvent.blockTimestamp",nftDetails.nft.mintEvent.blockTimestamp)
+  
     const months = diffDuration?.months();
     const years = diffDuration?.years();
     const days = diffDuration?.days();
