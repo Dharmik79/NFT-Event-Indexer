@@ -24,15 +24,14 @@ function LandingPage() {
     );
 
     // Use this to create NFT timeline @dd07
-    let nftTransfers = getNftTransfers(contractAddress, tokenId);
-
-    console.log(nftTransfers);
+    let nftTransfers =await  getNftTransfers(contractAddress, tokenId);
+    let transfers=nftTransfers?.nftTransfers || []
     const months = diffDuration?.months();
     const years = diffDuration?.years();
     const days = diffDuration?.days();
     if (result) {
       navigate("/nft", {
-        state: { result, ownerData, data, nftDetails, days, months, years },
+        state: { result, ownerData, data, nftDetails, days, months, years,transfers },
       });
     }
   };

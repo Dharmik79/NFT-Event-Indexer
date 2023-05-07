@@ -48,5 +48,6 @@
     border: 2px solid gray;
     box-sizing: border-box;
     margin: 5px;
+    overflow: scroll;
 
 }

@@ -27,7 +27,7 @@ const [traits,setTraits]=useState(state?.result?.rawMetadata?.attributes||[])
     </div>
     <div className="row2">
     <div className="transactions">
-      <Transactions />
+      <Transactions transfers={state?.transfers}/>
       </div>
     </div>
   </div>

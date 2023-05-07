@@ -122,5 +122,6 @@ export const getNftTransfers = async (contractAddress, tokenId) => {
   );
 
   const data = await resp.json();
+  console.log("data",data)
   return data;
 };
