@@ -9,7 +9,7 @@ function Profile({ imageURL, name, tokenId, tType, desc, traits,owner,days,month
         <div>Name : {name}</div>
         <div>Token Type : {tType}</div>
         <div>Token Id : {tokenId}</div>
-        <div>Owner : {owner}</div>
+        <div>Owner : <a href={`https://etherscan.io/address/${owner}`}>{owner}</a></div>
         <div> {years} years {months} months {days} days </div>
       </div>
       <div className="contact">
