@@ -22,7 +22,7 @@
     margin-right: 5px;
     margin-bottom: 1dvh;
     margin-top: 1dvh;
-    background-color: red;
+
 }
 
 .graph
@@ -33,7 +33,7 @@
     margin-right: 5px;
     margin-bottom: 1dvh;
     margin-top: 1dvh;
-    background-color: green;
+
 }
 
 .row2{
@@ -48,5 +48,6 @@
     border: 2px solid gray;
     box-sizing: border-box;
     margin: 5px;
-    background-color: blue;
+    overflow: scroll;
+
 }
