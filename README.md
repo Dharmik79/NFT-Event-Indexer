@@ -1,6 +1,6 @@
 # The NFT event indexer
 
-The proposed project aims to develop an NFT Timeline feature for NFTR, which will serve as a social media platform for NFTs. This feature will enable users to track the complete history of an NFT on-chain through a timeline. To accomplish this, the project will involve indexing every on-chain event associated with an NFT. The events to be indexed will include generic events such as sales, transfers, mint, bundle, etc that are currently indexed by marketplace platforms like Opensea.
+The project aims to develop an NFT Timeline feature for NFTR, which will serve as a social media platform for NFTs. This feature will enable users to track the complete history of an NFT on-chain through a timeline. To accomplish this, the project will involve indexing every on-chain event associated with an NFT. The events to be indexed will include generic events such as sales, transfers, mint, bundle, etc that are currently indexed by marketplace platforms like Opensea.
 
 ## How to run locally?
 
