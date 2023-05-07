@@ -5,6 +5,7 @@ import { Network, Alchemy } from "alchemy-sdk";
 // import dotenv
 // import dotenv from "dotenv";
 // dotenv.config();
+const pnemonic_API_KEY = "yoyzAnBS6Dk7Zz2M86dEguOEQBDLWE77vrFiCpkPLtH10vqc";
 
 // Optional Config object, but defaults to demo api-key and eth-mainnet.
 const settings = {
@@ -51,28 +52,40 @@ export const getNftSales = async (contractAddress, tokenId) => {
     {
       method: "GET",
       headers: {
-        "X-API-Key": "yoyzAnBS6Dk7Zz2M86dEguOEQBDLWE77vrFiCpkPLtH10vqc",
+        "X-API-Key": pnemonic_API_KEY,
       },
     }
   );
 
   const data1 = await resp.json();
-  let data=data1.nftTransfers
+  let data = data1.nftTransfers;
 
-let nftData=[]
-  for(let i=0;i<data.length;i++)
-  {
-    let obj={
-      time:data[i].blockchainEvent.blockTimestamp,
-      price:data[i].senderReceived.totalNative
+  let nftData = [];
+  for (let i = 0; i < data.length; i++) {
+    let obj = {
+      time: data[i].blockchainEvent.blockTimestamp,
+      price: data[i].senderReceived.totalNative,
+    };
+    if (obj.price) {
+      nftData.push(obj);
     }
-    if(obj.price)
-    {
-      nftData.push(obj)
-    }
- 
   }
   return nftData;
 };
 
 // getNftSales("0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D", "1191");
+
+export const getNftDetails = async (contractAddress, tokenId) => {
+  const resp = await fetch(
+    `https://ethereum-rest.api.mnemonichq.com/foundational/v1beta2/nfts/${contractAddress}/${tokenId}/details`,
+    {
+      method: "GET",
+      headers: {
+        "X-API-Key": pnemonic_API_KEY,
+      },
+    }
+  );
+
+  const result = await resp.json();
+  return result;
+};
