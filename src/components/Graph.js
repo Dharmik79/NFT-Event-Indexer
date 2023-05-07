@@ -26,7 +26,7 @@ const data = {
   labels: [],
   datasets: [
     {
-      label: 'Price($ USD)',
+      label: 'Price( Eth)',
       data: [],
       fill: false,
       borderColor: 'rgb(75, 192, 192)',
