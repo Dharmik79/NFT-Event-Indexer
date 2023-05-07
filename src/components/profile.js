@@ -14,21 +14,26 @@ function Profile({ imageURL, name, tokenId, tType, desc, traits,owner,days,month
       </div>
       <div className="contact">
         <div>Description :{desc}</div>
-        <div >
-          <div >Traits</div>
-
-          <div>
-            {traits.map((trait, index) => {
-              return (
-                <div key={index}>
-                  <div>
-                   {trait.trait_type}  : {trait.value}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+        <div style={{ fontFamily: "Arial, sans-serif", fontSize: "14px", border: "1px solid #dddddd", borderRadius: "5px", padding: "10px", backgroundColor: "#f2f2f2" }}>
+        <div style={{ fontWeight: "bold", fontSize: "18px", marginBottom: "10px" }}>Traits</div>
+      
+        <table style={{ width: "100%", borderCollapse: "collapse" }}>
+          <thead>
+            <tr>
+              <th style={{ backgroundColor: "#dddddd", fontWeight: "bold", textAlign: "left", padding: "10px", border: "1px solid #dddddd" }}>Type</th>
+              <th style={{ backgroundColor: "#dddddd", fontWeight: "bold", textAlign: "left", padding: "10px", border: "1px solid #dddddd" }}>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            {traits.map((trait, index) => (
+              <tr key={index}>
+                <td style={{ border: "1px solid #dddddd", padding: "10px" }}>{trait.trait_type}</td>
+                <td style={{ border: "1px solid #dddddd", padding: "10px" }}>{trait.value}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
       
       </div>
     </div>
